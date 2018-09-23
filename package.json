@@ -1,0 +1,20 @@
+{
+  "name": "arser",
+  "version": "1.0.0-alpha",
+  "description": "A type-safe NodeJS Commandline Parser written in Typescript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "run": "ts-node index.ts",
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  }
+}
