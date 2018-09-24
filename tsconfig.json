@@ -1,6 +1,10 @@
 {
     "compilerOptions": {
-        "outDir": "dist"
+        "outDir": "dist",
+        "experimentalDecorators": true,
+        "types": [
+            "@types/node"
+        ]
     },
-    "files": [ "index.ts" ]
+    "files": [ "src/index.ts" ]
 }

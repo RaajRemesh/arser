@@ -1,0 +1,1 @@
+export declare function option(name: string, short: string, options?: any);
