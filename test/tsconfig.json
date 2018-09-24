@@ -1,10 +1,16 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "experimentalDecorators": true
+        "lib": ["es6", "dom"],
+        "module": "commonjs",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "types": [
+            "@types/node"
+        ]
     },
 	"include": [
-		"**/*.ts", "../src/i-default-action-options.ts", "../src/i-action-options.ts", "../src/base-default-action.ts", "../src/base-action.ts", "../src/i-parser-options.ts"
+		"**/*.ts"
 	],
 	"exclude": [
 	]

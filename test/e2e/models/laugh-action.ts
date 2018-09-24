@@ -1,6 +1,6 @@
-import { command, BaseAction } from "../../../src";
+import { action, BaseAction } from "../../../src";
 
-@command("laugh")
+@action("laugh")
 export class LaughAction extends BaseAction {
 
 }

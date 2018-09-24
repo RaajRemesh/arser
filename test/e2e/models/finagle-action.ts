@@ -1,9 +1,9 @@
-import { command, option, BaseAction } from "../../../src";
+import { action, option, BaseAction } from "../../../src";
 
 export const tools: [ "wrench", "hammer", "pickaxe" ]
     = [ "wrench", "hammer", "pickaxe" ];
 
-@command("finagle")
+@action("finagle")
 export class FinagleAction extends BaseAction {
 
     @option("tool", "t", { from: tools })
@@ -15,10 +15,6 @@ export class FinagleAction extends BaseAction {
     @option("thing", "i", { type: "string" })
     thing: string = "";
 
-    @option("quick", "q", { complete: this.quickComplete })
+    @option("quick", "q", { })
     quick: string = "";
-
-    quickComplete(fragment: string): string {
-        return "i complete your commandline!";
-    }
 }

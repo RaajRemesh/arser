@@ -1,7 +1,9 @@
-import { command } from "../../../src";
+import { action, BaseAction } from "../../../src";
 
-@command("add")
-export class AddAction {
-    
+@action("add")
+export class AddAction extends BaseAction {
 
+    helpText(): string {
+        return ""
+    }
 }
