@@ -1,4 +1,4 @@
-import { IParserOptions } from "./i-parser-options";
+import { ParserOptions } from "./i-parser-options";
 import { BaseDefaultAction } from "./base-default-action";
 
 export class Parser<T extends BaseDefaultAction> {
@@ -9,7 +9,7 @@ export class Parser<T extends BaseDefaultAction> {
      */
     constructor(
         protected TClass: { new(): T },
-        protected options?: IParserOptions
+        protected options?: ParserOptions
     ) {
         
     }
