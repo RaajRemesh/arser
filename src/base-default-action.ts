@@ -1,9 +1,9 @@
-import { flag } from "./decorators/flag-decorator";
+import { option } from "./decorators/option-decorator";
 import { BaseAction } from './base-action';
 
 export class BaseDefaultAction extends BaseAction {
 
-    @flag("help", "h")
+    @option("help", "h")
     public help: boolean = false;
 
 }

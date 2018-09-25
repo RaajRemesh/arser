@@ -4,6 +4,6 @@ import { action, BaseAction } from "../../../src";
 export class AddAction extends BaseAction {
 
     helpText(): string {
-        return ""
+        return super.helpText();
     }
 }

@@ -1,4 +1,4 @@
-import { action, option, BaseAction } from "../../../src";
+import { action, BaseAction } from "../../../src";
 
 @action("custom")
 export class CustomAction extends BaseAction {

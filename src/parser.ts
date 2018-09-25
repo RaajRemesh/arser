@@ -1,4 +1,4 @@
-import { ParserOptions } from "./i-parser-options";
+import { ParserOptions } from "./models/parser-options";
 import { BaseDefaultAction } from "./base-default-action";
 
 export class Parser<T extends BaseDefaultAction> {

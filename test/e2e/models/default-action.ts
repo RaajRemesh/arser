@@ -1,4 +1,4 @@
-import { action, BaseDefaultAction, flag } from "../../../src";
+import { action, BaseDefaultAction, option } from "../../../src";
 import { AddAction } from "./add-action";
 import { FinagleAction } from "./finagle-action";
 import { LaughAction } from "./laugh-action";
@@ -9,6 +9,6 @@ export class DefaultAction extends BaseDefaultAction {
     finagle = FinagleAction;
     laugh = LaughAction;
 
-    @flag("version", "v")
+    @option("version", "v")
     version: boolean = false;
 }

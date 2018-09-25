@@ -1,6 +1,6 @@
-import { IActionOptions } from '../i-action-options';
-import { IDefaultActionOptions } from '../i-default-action-options';
-import { IActionConfig } from '../i-action-config';
+import { IActionOptions } from '../models/i-action-options';
+import { IDefaultActionOptions } from '../models/i-default-action-options';
+import { IActionConfig } from '../models/i-action-config';
 
 const actionMetadataKey = "us.dibbern.oss.arser.decorators.class.action";
 
