@@ -14,6 +14,8 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^10.10.3",
+    "alsatian": "^2.3.0",
+    "alsatian-fluent-assertions": "^1.0.0-beta.5",
     "rimraf": "^2.6.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"

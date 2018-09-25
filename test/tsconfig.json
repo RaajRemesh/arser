@@ -3,7 +3,12 @@
         "outDir": "dist",
         "lib": ["es6", "dom"],
         "module": "commonjs",
+        "alwaysStrict": true,
         "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
         "emitDecoratorMetadata": true,
         "types": [
             "@types/node"

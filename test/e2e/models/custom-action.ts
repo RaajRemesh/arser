@@ -16,12 +16,12 @@ export class CustomAction extends BaseAction {
 }
 
 class ArgV {
-    part: string;
+    part: string = "";
 
-    isConsumed: boolean;
+    isConsumed: boolean = false;
 
-    position: number;
+    position: number = -1;
 
     /** Whether it appears to be a standard operator: /--?([a-zA-Z_][a-zA-Z_0-9-]*)/ */
-    isOperator: boolean; 
+    isOperator: boolean = false; 
 }
