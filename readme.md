@@ -1,18 +1,20 @@
-# vas ist das
-
-ohh yeah.
-
-Look in package.json under scripts. You can define your own, there.
+# Arser
+A type-safe commandline arguments parser written in TypeScript. Arser uses a
+decorator/model-tree approach to specifying your CLI, by default.
+Customization is possible through method references and overrides.
 
 ## Terminology
+
 ### Action
-An action specified without dashes on the commandline. The "pull" in "git pull," for example, is an action.
+An action specified without dashes on the commandline. The "clone" in "git
+clone," for example, is an action.
 
 ### Option
 An action-modifying option that takes one or more parameters.
 
 ### Flag
-An action-modifying boolean flag. E.g., "--help" is a flag on the default action.
+An action-modifying boolean flag. E.g., "--help" is a flag on the default
+action.
 
 ## Usage
 ```typescript
