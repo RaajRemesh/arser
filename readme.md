@@ -47,3 +47,5 @@ runMyApp(model);
 2. Add NodeJS quick-complete option.
 3. Flesh out a nice wiki
 4. Flesh out this readme
+5. Consider dash dash (" -- ") and treatment of subsequent values
+6. Consider parsing culture. i18n.

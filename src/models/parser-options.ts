@@ -14,4 +14,12 @@ export class ParserOptions {
      * Which dash style to use for flags and options.
      */
     operatorStyle: OperatorStyle = OperatorStyle.dashDashLongName;
+
+    maxDisplayWidth: number = 80;
+
+    ignoreUnknown: boolean = false;
+
+    caseSensitiveMatch: boolean = true;
+
+    caseSensitiveEnumMatch: boolean = true;
 }
