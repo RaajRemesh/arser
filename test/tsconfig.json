@@ -15,8 +15,9 @@
         ]
     },
 	"include": [
-		"**/*.ts", "../src/models/parser-options.ts", "../src/models/option-options.ts", "../src/parser-options.ts", "../src/decorators/flag-options.ts", "../src/models/i-default-action-options.ts", "../s../src/models/i-action-options.ts, "../src/models/i-action-config.ts", "../src/decorators/option-decorator.ts"
-	],
-	"exclude": [
-	]
+		"**/*.ts", "../src/models/parser-options.ts", "../src/models/option-options.ts", "../src/parser-options.ts", "../src/decorators/flag-options.ts", "../src/models/i-default-action-options.ts", "../s../src/models/i-action-options.ts", "../src/models/i-action-config.ts", "../src/decorators/option-decorator.ts"
+    ],
+    "exclude": [
+        
+    ]
 }
