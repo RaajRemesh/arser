@@ -1,7 +1,7 @@
 # Arser
 A type-safe commandline arguments parser written in TypeScript. Arser uses a
-decorator/model-tree approach to specifying your CLI, by default.
-Customization is possible through method references and overrides.
+decorator/model-tree approach to specifying your CLI, with customization
+made possible through method references and overrides.
 
 ## Terminology
 
