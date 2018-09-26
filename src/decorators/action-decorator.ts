@@ -9,7 +9,7 @@ const actionMetadataKey = "us.dibbern.oss.arser.decorators.class.action";
  * @param target The class defining the default action.
  */
  // (Not a true factory, when called this way. Instead, a convenience method for the user.)
-export function _actionDecoratorFactory<TClass extends Function>(target: TClass): void;
+function _actionDecoratorFactory<TClass extends Function>(target: TClass): void;
 
 /**
  * Identifies a named action for the CLI.
@@ -17,16 +17,16 @@ export function _actionDecoratorFactory<TClass extends Function>(target: TClass)
  * @param opts Options relating to the action.
  * @param isDefaultAction Whether to also use this action as the CLI's default action.
  */
-export function _actionDecoratorFactory(name: string, opts?: IActionOptions, isDefaultAction?: true | false): ClassDecorator;
+function _actionDecoratorFactory(name: string, opts?: IActionOptions, isDefaultAction?: true | false): ClassDecorator;
 
 /**
  * Identifies a CLI's default action. There can only be one default action per CLI.
  * @param opts The default action's options.
  */
-export function _actionDecoratorFactory(opts?: IDefaultActionOptions  /* implicitly default when name omitted */): ClassDecorator;
+function _actionDecoratorFactory(opts?: IDefaultActionOptions  /* implicitly default when name omitted */): ClassDecorator;
 
 // The composite/implementation of the above signatures.
-export function _actionDecoratorFactory<TClass extends Function>(
+function _actionDecoratorFactory<TClass extends Function>(
     nameOrOptsOrTarget?: string | IDefaultActionOptions | TClass,
     opts: IActionOptions = null,
     isDefaultAction: boolean = null
