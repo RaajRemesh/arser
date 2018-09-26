@@ -18,7 +18,6 @@ action.
 
 ## Usage
 ```typescript
-@action()
 export const tools: [ "wrench", "hammer", "pickaxe" ]
     = [ "wrench", "hammer", "pickaxe" ];
 
