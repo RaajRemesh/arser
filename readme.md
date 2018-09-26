@@ -1,4 +1,4 @@
-# Arser
+# Arser CLI Clerk
 A type-safe commandline arguments parser written in TypeScript. Arser uses a
 decorator/model-tree approach to specifying your CLI, with customization
 made possible through method references and overrides.
