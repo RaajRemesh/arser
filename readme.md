@@ -1,3 +1,5 @@
+![Arser CLI Clerk][banner]
+
 # Arser CLI Clerk
 A type-safe commandline (**ar**)guments par(**ser**) written in TypeScript. Arser uses a
 decorator/model-tree approach to specifying your CLI, with customization
@@ -50,3 +52,5 @@ runMyApp(model);
 4. Flesh out this readme
 5. Consider dash dash (" -- ") and treatment of subsequent values
 6. Consider parsing culture. i18n.
+
+[banner]: https://raw.githubusercontent.com/cdibbs/arser/master/resources/arser-cli-clerk.svg "The only way to discover the limits of the possible is to go beyond them into the impossible. - Arthur C. Clarke"
