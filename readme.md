@@ -53,4 +53,4 @@ runMyApp(model);
 5. Consider dash dash (" -- ") and treatment of subsequent values
 6. Consider parsing culture. i18n.
 
-[banner]: https://raw.githubusercontent.com/cdibbs/arser/blob/master/resources/arser-cli-clerk.svg "The only way to discover the limits of the possible is to go beyond them into the impossible. - Arthur C. Clarke"
+[banner]: https://github.com/cdibbs/arser/blob/master/resources/arser-cli-clerk.svg "The only way to discover the limits of the possible is to go beyond them into the impossible. - Arthur C. Clarke"
