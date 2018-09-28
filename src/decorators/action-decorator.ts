@@ -1,8 +1,10 @@
 import { IActionOptions } from '../models/i-action-options';
 import { IDefaultActionOptions } from '../models/i-default-action-options';
 import { IActionConfig } from '../models/i-action-config';
+import { ActionDecoratorInfo, metadataKeyPrefix } from '../models';
 
-const actionMetadataKey = "us.dibbern.oss.arser.decorators.class.action";
+export const actionMetadataKey: string
+    = metadataKeyPrefix + ActionDecoratorInfo.name;
 
 /**
  * Identifies a CLI's default action. There can only be one default action per CLI.
@@ -49,7 +51,10 @@ function _actionDecoratorFactory<TClass extends Function>(
         isDefault = true;
     }
 
-    // decorators are basically closure factories for a preprocessing function
+    /**
+     * Decorates a class, storing information about each, new instance of it with Reflect.get/set.
+     * @param target The class instance (object) to which this decorator applies.
+     */
     function _actionDecorator<TClass extends Function>(target: TClass): void {
         let d: { [propKey: string]: IActionConfig } = Reflect.get(target, actionMetadataKey) || {};
         d[target.name] = { name, isDefault, options };

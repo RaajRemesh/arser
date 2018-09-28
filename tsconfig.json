@@ -7,12 +7,12 @@
         "experimentalDecorators": true,
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true,
-        "strict": true,
+        "removeComments": false,
         "emitDecoratorMetadata": true,
         "types": [
             "@types/node"
         ]
     },
     "files": [ "src/index.ts" ],
-    "include": [ "src/**/*.spec.ts" ]
+    "include": [ "src/**/*.spec.ts", "src/decorators/get-decorator-info.ts" ]
 }

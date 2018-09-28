@@ -1,6 +1,8 @@
 import { OptionOptions } from "../models/option-options";
+import { metadataKeyPrefix, OptionDecoratorInfo } from "../models";
 
-const actionMetadataKey = "us.dibbern.oss.arser.decorators.prop.option";
+const optionMetadataKey: string
+    = metadataKeyPrefix + OptionDecoratorInfo.name;
 
 /**
  * Defines an option property for the current action class.
@@ -16,10 +18,14 @@ function _optionDecoratorFactory(name: string, short?: string, helpText?: string
  * @param short The short form of the option. Ex: "h" in "git -h".
  * @param opts Options for this option.
  */
-function _optionDecoratorFactory(name: string, short?: string, opts?: OptionOptions): PropertyDecorator
-
+function _optionDecoratorFactory(name: string, short?: string, opts?: OptionOptions): PropertyDecorator;
 function _optionDecoratorFactory(name: string, short?: string, optsOrHelpText?: OptionOptions | string): PropertyDecorator {
 
+    /**
+     * Decorates an object property, storing information about it with Reflect.get/set.
+     * @param target The object to which this decorator instance applies.
+     * @param propertyKey The property to which this decorator instance applies.
+     */
     function _optionDecorator(target: Object, propertyKey: string | symbol): void {
 
     }
