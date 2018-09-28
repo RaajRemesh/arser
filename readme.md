@@ -19,22 +19,31 @@ An action-modifying boolean flag. E.g., "--help" is a flag on the default
 action.
 
 ## Usage
+
+### myapp.ts
+
 ```typescript
-export const tools: [ "wrench", "hammer", "pickaxe" ]
-    = [ "wrench", "hammer", "pickaxe" ];
+const tools: string = [ "wrench", "hammer", "pickaxe" ];
 
 @action("finagle")
-export class FinagleAction extends BaseAction {
+class FinagleAction extends BaseAction {
 
-    @option("tool", "t", { from: tools })
-    tool: typeof tools[number] = "wrench";
+    @option("tool", "t", "The tool for finagling your toolables."
+        { valid: tools })
+    tool: string = "wrench";
+
+    @option("turns", "n", "How much to finagle.",
+        { valid: /\d+/, parse: Number })
+    turns: number = 1;
+
 }
 
 @action( /* default/top-level */ )
 class MyAppCLI extends BaseDefaultAction {
+
     finagle = FinagleAction;
 
-    @flag("version", "v")
+    @flag("force", "f", "Compel the toolable to finagle at your own risk.")
     version: boolean = false;
 }
 
@@ -44,6 +53,27 @@ const model = new Parser(MyAppCLI)
 
 runMyApp(model);
 ```
+
+### Running myapp.ts
+
+The top-level class marked with an empty `@action` is your default action class. When running
+your program, if you don't specify an action from that class, it will use the default, itself,
+and it will look for any options, there. If inheriting from BaseDefaultClass, the default
+options include `--help` and `--version`.
+
+```console
+ubuntu@home:~$ myapp --help
+ubuntu@home:~$ myapp --version
+```
+
+If you specify an action, control falls to the referenced class:
+
+```console
+ubuntu@home:~$ myapp finagle -t wrench -n 3
+ -> Successfully finagled with the wrench three times.
+```
+
+Each action can have subactions and options/flags.
 
 ## To do
 1. Consistency check during AssertValidConfiguration() (no duplicate short names, etc)

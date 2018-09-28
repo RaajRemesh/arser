@@ -9,7 +9,7 @@ export const flagMetadataKey: string
  * @param short The optional shorthand flag name. Ex: "h" in "git -h"
  * @param helpText The help text for this option.
  */
-function _flagDecoratorFactory(name: string, short?: string, helpText?: string): PropertyDecorator;
+function _flagDecoratorFactory(name: string, short?: string, helpText?: string, addtlOpts?: OptionOptions): PropertyDecorator;
 
 /**
  * Specifies that the property should be set from a boolean flag.
@@ -27,7 +27,7 @@ function _flagDecoratorFactory(name: string, short?: string, opts?: OptionOption
  */
 function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: string | OptionOptions): PropertyDecorator;
 
-function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: string | OptionOptions): PropertyDecorator {
+function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: string | OptionOptions, opts?: OptionOptions): PropertyDecorator {
     
     /**
      * Decorates an object property, storing information about it with Reflect.get/set.
