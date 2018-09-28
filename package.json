@@ -6,7 +6,7 @@
   "scripts": {
     "run": "ts-node index.ts",
     "build": "npm-run-all clean tsc",
-    "builde2e": "tsc --project ./src/e2e/tsconfig.json",
+    "builde2e": "tsc --project ./test/tsconfig.json",
     "clean": "rimraf dist",
     "precover": "rimraf ./coverage/*",
     "cover": "nyc --all npm run unittest",
@@ -33,5 +33,23 @@
     "rimraf": "^2.6.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
+  },
+  "nyc": {
+    "include": [
+      "src/**"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "typings",
+      "**/*.d.ts",
+      "**/*.test.ts",
+      "**/*.spec.ts"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ]
   }
 }
