@@ -1,12 +1,12 @@
-import { IActionOptions } from "./i-action-options";
-import { IDefaultActionOptions } from "./i-default-action-options";
+import { ActionOptions } from "./action-options";
+import { DefaultActionOptions } from "./default-action-options";
 
-export interface IActionConfig {
+export class ActionConfig {
     /** The action name. Ex: "clone" in "git clone". */
     name: string;
 
     /** Options for this action. */
-    options: IDefaultActionOptions | IActionOptions;
+    options: DefaultActionOptions | ActionOptions;
 
     /** Whether this action should serve as the CLI's default action. */
     isDefault: boolean;

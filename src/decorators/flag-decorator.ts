@@ -1,7 +1,7 @@
-import { FlagOptions, metadataKeyPrefix, FlagDecoratorInfo } from '../models';
+import { metadataKeyPrefix, OptionDecoratorInfo, OptionOptions } from '../models';
 
 export const flagMetadataKey: string
-    = metadataKeyPrefix + FlagDecoratorInfo.name;
+    = metadataKeyPrefix + OptionDecoratorInfo.name;
 
 /**
  * Specifies that the property should be set from a boolean flag.
@@ -17,7 +17,7 @@ function _flagDecoratorFactory(name: string, short?: string, helpText?: string):
  * @param short The optional shorthand flag name. Ex: "h" in "git -h"
  * @param opts Options for the flag.
  */
-function _flagDecoratorFactory(name: string, short?: string, opts?: FlagOptions): PropertyDecorator;
+function _flagDecoratorFactory(name: string, short?: string, opts?: OptionOptions): PropertyDecorator;
 
 /**
  * Specifies that the property should be set from a boolean flag.
@@ -25,9 +25,9 @@ function _flagDecoratorFactory(name: string, short?: string, opts?: FlagOptions)
  * @param short The optional shorthand flag name. Ex: "h" in "git -h"
  * @param optsOrHelpText Options for the flag or just the help text.
  */
-function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: string | FlagOptions): PropertyDecorator;
+function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: string | OptionOptions): PropertyDecorator;
 
-function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: string | FlagOptions): PropertyDecorator {
+function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: string | OptionOptions): PropertyDecorator {
     
     /**
      * Decorates an object property, storing information about it with Reflect.get/set.

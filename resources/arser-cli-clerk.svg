@@ -89,12 +89,12 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter937">
+       id="filter898">
       <feBlend
          inkscape:collect="always"
          mode="screen"
          in2="BackgroundImage"
-         id="feBlend939" />
+         id="feBlend900" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -105,10 +105,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.47107751"
-     inkscape:cx="1438.6176"
+     inkscape:cx="1729.8613"
      inkscape:cy="531.12786"
      inkscape:document-units="mm"
-     inkscape:current-layer="g1300"
+     inkscape:current-layer="svg8"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -127,7 +127,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -339,17 +339,17 @@
      id="text988"
      y="-512.62439"
      x="42.857422"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:129.33332825px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter937)"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:129.33332825px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter898);stroke-width:1.00000001;stroke-miterlimit:4;stroke-dasharray:none"
      xml:space="preserve"><tspan
        id="tspan986"
        y="-512.62439"
        x="42.857422"
        sodipodi:role="line"><tspan
          id="tspan984"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:129.33332825px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:129.33332825px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:1.00000001;stroke-miterlimit:4;stroke-dasharray:none"
          y="-512.62439"
          x="42.857422">Arser C<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64.00000081px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:small-caps;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;stroke-width:1.00000001;stroke-miterlimit:4;stroke-dasharray:none;fill:#4b61ff;fill-opacity:1;stroke:#000000;stroke-opacity:1"
    id="tspan1002">LI</tspan> Clerk</tspan></tspan></text>
   <g
      inkscape:groupmode="layer"

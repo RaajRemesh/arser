@@ -10,4 +10,6 @@ export class OptionOptions {
 
     /** Help text to display for this option. */
     helpText?: string = "";
+
+    isFlag?: boolean = false;
 }

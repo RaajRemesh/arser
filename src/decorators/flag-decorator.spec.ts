@@ -2,7 +2,7 @@ import { Test, TestCase, Setup } from "alsatian";
 import { flag as flagFactory } from "./flag-decorator";
 import { Assert } from "alsatian-fluent-assertions";
 import { getDecoratorInfo } from "./get-decorator-info";
-import { FlagDecoratorInfo, FlagOptions } from "../models";
+import { OptionOptions, OptionDecoratorInfo } from "../models";
 
 export class FlagDecoratorTests {
     testObj: any;
@@ -27,16 +27,20 @@ export class FlagDecoratorTests {
     @TestCase("a name", "n", "help text", { helpText: "help text", isFlag: true })
     @TestCase("a name", "n", { helpText: "abc" }, { helpText: "abc", isFlag: true })
     @Test()
-    factory_storesOptions(name: string, short: string, third: string | FlagOptions, expectedOptions: FlagOptions) {
+    decorator_storesConfig(name: string, short: string, third: string | OptionOptions, expectedOptions: OptionOptions) {
         const propName = "someprop";
         const flagDec = flagFactory(name, short, third);
         flagDec(this.testObj, propName);
 
-        const info = getDecoratorInfo(this.testObj, FlagDecoratorInfo);
-        Assert(info).has({
-            name: name,
-            shortName: short,
-            options: expectedOptions
-        });
+        const info = getDecoratorInfo(this.testObj, OptionDecoratorInfo);
+        Assert(info)
+            .has(i => i.options)
+            .that.has(propName)
+            .that.hasFirst()
+            .that.has({
+                name: name,
+                shortName: short,
+                options: expectedOptions
+            });
     }
 }

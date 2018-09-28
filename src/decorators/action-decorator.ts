@@ -1,6 +1,6 @@
-import { IActionOptions } from '../models/i-action-options';
-import { IDefaultActionOptions } from '../models/i-default-action-options';
-import { IActionConfig } from '../models/i-action-config';
+import { ActionOptions } from '../models/action-options';
+import { DefaultActionOptions } from '../models/default-action-options';
+import { ActionConfig } from '../models/action-config';
 import { ActionDecoratorInfo, metadataKeyPrefix } from '../models';
 
 export const actionMetadataKey: string
@@ -19,22 +19,22 @@ function _actionDecoratorFactory<TClass extends Function>(target: TClass): void;
  * @param opts Options relating to the action.
  * @param isDefaultAction Whether to also use this action as the CLI's default action.
  */
-function _actionDecoratorFactory(name: string, opts?: IActionOptions, isDefaultAction?: true | false): ClassDecorator;
+function _actionDecoratorFactory(name: string, opts?: ActionOptions, isDefaultAction?: true | false): ClassDecorator;
 
 /**
  * Identifies a CLI's default action. There can only be one default action per CLI.
  * @param opts The default action's options.
  */
-function _actionDecoratorFactory(opts?: IDefaultActionOptions  /* implicitly default when name omitted */): ClassDecorator;
+function _actionDecoratorFactory(opts?: DefaultActionOptions  /* implicitly default when name omitted */): ClassDecorator;
 
 // The composite/implementation of the above signatures.
 function _actionDecoratorFactory<TClass extends Function>(
-    nameOrOptsOrTarget?: string | IDefaultActionOptions | TClass,
-    opts: IActionOptions = null,
+    nameOrOptsOrTarget?: string | DefaultActionOptions | TClass,
+    opts: ActionOptions = null,
     isDefaultAction: boolean = null
 ): ClassDecorator | void {
     let name: string;
-    let options: IActionOptions;
+    let options: ActionOptions;
     let isDefault: boolean;
     if (typeof nameOrOptsOrTarget === "string") {
         // then, its an ordinary command, not the default command.
@@ -42,7 +42,7 @@ function _actionDecoratorFactory<TClass extends Function>(
         options = opts || {};
         isDefault = isDefaultAction || false;
     } else if (typeof nameOrOptsOrTarget === "function") {
-        _actionDecorator(nameOrOptsOrTarget);
+        _actionDecorator(/* target */ nameOrOptsOrTarget);
         return;
     } else {
         // its the default command
@@ -56,9 +56,9 @@ function _actionDecoratorFactory<TClass extends Function>(
      * @param target The class instance (object) to which this decorator applies.
      */
     function _actionDecorator<TClass extends Function>(target: TClass): void {
-        let d: { [propKey: string]: IActionConfig } = Reflect.get(target, actionMetadataKey) || {};
-        d[target.name] = { name, isDefault, options };
-        Reflect.set(target, actionMetadataKey, d);
+        let model: ActionDecoratorInfo = Reflect.get(target, actionMetadataKey) || new ActionDecoratorInfo();
+        model.actions.push({ name, isDefault, options });
+        Reflect.set(target, actionMetadataKey, model);
     }
 
     return _actionDecorator;
