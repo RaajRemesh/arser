@@ -12,7 +12,8 @@ An action specified without dashes on the commandline. The "clone" in "git
 clone," for example, is an action.
 
 ### Option
-An action-modifying option that takes one or more parameters.
+An action-modifying option that takes one or more parameters. The "b" in "git -b [branch]"
+is an option. Via configuration, you can also use the windows-style "/p" format.
 
 ### Flag
 An action-modifying boolean flag. E.g., "--help" is a flag on the default
@@ -58,9 +59,9 @@ const model = new Parser(MyAppCLI)
     .assertValidConfiguration() // you can also move this to your tests
     .parse(process.argv);
 
-// Or, use Arser to launch your app:
+// Or, use Arser + your favorite DI framework to launch your app:
 container.build<IParser>()
-    .assertValidConfiguration() // you can also move this to your tests
+    .assertValidConfiguration()
     .parse(process.argv)
     .launch(); // await/.launchAsync()
 
@@ -69,9 +70,9 @@ container.build<IParser>()
 ### Running myapp.ts
 
 The top-level class marked with an empty `@action` is your default action class. When running
-your program, if you don't specify an action from that class, it will use the default, itself,
-and it will look for any options, there. If inheriting from BaseDefaultClass, the default
-options include `--help` and `--version`.
+your program, if you don't specify an action from that class, it will use the default,
+and it will look for any options, there. If inheriting from BaseDefaultClass, the `--help`
+option is included and displays some default help text constructed from your models.
 
 ```console
 ubuntu@home:~$ myapp --help
@@ -82,17 +83,17 @@ If you specify an action, control falls to the referenced class:
 
 ```console
 ubuntu@home:~$ myapp finagle -t wrench -n 3
- -> Successfully finagled with the wrench three times.
+ -> Successfully finagled; used the wrench three times.
 ```
 
-Each action can have subactions and options/flags.
+Actions can have nested sub-actions and flags, allowing you to build a consistent
+language for launching your application from the commandline.
 
 ## To do
 1. Consistency check during AssertValidConfiguration() (no duplicate short names, etc)
-2. Add NodeJS quick-complete option.
-3. Flesh out a nice wiki
-4. Flesh out this readme
-5. Consider dash dash (" -- ") and treatment of subsequent values
-6. Consider parsing culture. i18n.
+2. Flesh out a nice wiki
+3. Flesh out this readme
+4. Consider dash dash (" -- ") and treatment of subsequent values
+5. Consider parsing culture. i18n.
 
 [banner]: https://github.com/cdibbs/arser/blob/master/resources/arser-cli-clerk.svg "The only way to discover the limits of the possible is to go beyond them into the impossible. - Arthur C. Clarke"
