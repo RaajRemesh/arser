@@ -1,11 +1,23 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "experimentalDecorators": true
+        "lib": ["es6", "dom"],
+        "module": "commonjs",
+        "alwaysStrict": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "emitDecoratorMetadata": true,
+        "types": [
+            "@types/node"
+        ]
     },
 	"include": [
-		"**/*.ts", "../src/i-default-action-options.ts", "../src/i-action-options.ts", "../src/base-default-action.ts", "../src/base-action.ts", "../src/i-parser-options.ts"
-	],
-	"exclude": [
-	]
+		"**/*.ts", "../src/models/i-property-decorator-model.ts", "../src/decorators/i-property-decorator-model.ts", "../src/decorators/property-decorator.ts", "../src/util/i-property-decorator-model.ts"
+    ],
+    "exclude": [
+        
+    ]
 }

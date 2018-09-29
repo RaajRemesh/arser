@@ -1,1 +1,0 @@
-export declare function flag(name: string, short: string): any;

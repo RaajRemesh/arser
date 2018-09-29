@@ -1,2 +1,5 @@
-dist
 node_modules
+dist
+test
+coverage
+.nyc_output

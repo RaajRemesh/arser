@@ -1,24 +1,24 @@
-import { command, option, BaseAction } from "../../../src";
+import { action, option, BaseAction } from "../../../src";
 
 export const tools: [ "wrench", "hammer", "pickaxe" ]
     = [ "wrench", "hammer", "pickaxe" ];
 
-@command("finagle")
 export class FinagleAction extends BaseAction {
 
-    @option("tool", "t", { from: tools })
+    @option("tool", "t", "Specifies the tool to use for this operation",
+        { required: true, valid: tools })
     tool: typeof tools[number] = "wrench";
 
-    @option("nail", "n", { type: "number" })
+    @option("nail", "n", { parse: Number })
     nail: number = 3.14;
 
-    @option("thing", "i", { type: "string" })
+    @option("thing", "i", { parse: FinagleAction.thingParser })
     thing: string = "";
 
-    @option("quick", "q", { complete: this.quickComplete })
+    @option("quick", "q", { valid: /[a-z]*/ })
     quick: string = "";
 
-    quickComplete(fragment: string): string {
-        return "i complete your commandline!";
+    static thingParser(raw: string): string {
+        return raw + raw;
     }
 }
