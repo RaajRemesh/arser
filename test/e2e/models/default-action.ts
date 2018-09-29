@@ -1,10 +1,10 @@
-import { action, BaseDefaultAction, option, flag } from "../../../src";
+import { action, BaseDefaultAction, option, flag, BaseLaunchableDefaultAction } from "../../../src";
 import { AddAction } from "./add-action";
 import { FinagleAction } from "./finagle-action";
 import { LaughAction } from "./laugh-action";
 
 @action
-export class DefaultAction extends BaseDefaultAction {
+export class DefaultAction extends BaseLaunchableDefaultAction {
     @action("add", "Add to the collection", { launch: () => {} })
     add: AddAction = new AddAction();
 

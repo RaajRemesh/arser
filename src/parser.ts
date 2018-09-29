@@ -1,7 +1,7 @@
 import { ParserOptions } from "./models/parser-options";
-import { BaseDefaultAction } from "./base-default-action";
+import { IDefaultAction } from "./i-default-action";
 
-export class Parser<T extends BaseDefaultAction> {
+export class Parser<T extends IDefaultAction> {
     /**
      * Prepares an argv parser according to a provided format and parsing options.
      * @param TClass A subclass of BaseDefaultAction.

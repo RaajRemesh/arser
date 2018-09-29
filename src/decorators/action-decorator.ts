@@ -9,6 +9,12 @@ export const propertyActionMetadataKey: string
 
 /**
  * Identifies a CLI's default action. There can only be one default action per CLI.
+ * @param opts The default action's options.
+ */
+function _actionDecoratorFactory(opts?: DefaultActionOptions  /* implicitly default when name omitted */): ClassDecorator;
+
+/**
+ * Identifies a CLI's default action. There can only be one default action per CLI.
  * @param target The class defining the default action.
  */
 function _actionDecoratorFactory<TClass extends Function>(target: TClass): void;
@@ -27,12 +33,6 @@ function _actionDecoratorFactory(name: string, opts?: ActionOptions): PropertyDe
  * @param opts Options relating to the action.
  */
 function _actionDecoratorFactory(name: string, helpText?: string, opts?: ActionOptions): PropertyDecorator;
-
-/**
- * Identifies a CLI's default action. There can only be one default action per CLI.
- * @param opts The default action's options.
- */
-function _actionDecoratorFactory(opts?: DefaultActionOptions  /* implicitly default when name omitted */): ClassDecorator;
 
 // The composite/implementation of the above signatures.
 function _actionDecoratorFactory<TClass extends Function>(
