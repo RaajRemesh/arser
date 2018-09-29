@@ -14,7 +14,7 @@
     "e2e": "alsatian --tap test/e2e/*.e2e.js",
     "report_coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "test": "npm-run-all unittest e2e",
-    "tsc": "tsc -p tsconfig-build.json",
+    "tsc": "tsc -p tsconfig.json",
     "ts-node": "ts-node",
     "unittest": "ts-node --no-cache --project tsconfig.json test/runner.ts",
     "taptest": "ts-node --tap src/spec-lib/runner.ts",
