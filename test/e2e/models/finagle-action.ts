@@ -3,13 +3,10 @@ import { action, option, BaseAction } from "../../../src";
 export const tools: [ "wrench", "hammer", "pickaxe" ]
     = [ "wrench", "hammer", "pickaxe" ];
 
-@action("finagle")
 export class FinagleAction extends BaseAction {
 
-    @option("tool", "t", { 
-        helpText: "Specifies the tool to use for this operation",
-        required: true,
-        valid: tools })
+    @option("tool", "t", "Specifies the tool to use for this operation",
+        { required: true, valid: tools })
     tool: typeof tools[number] = "wrench";
 
     @option("nail", "n", { parse: Number })

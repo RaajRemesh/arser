@@ -8,7 +8,7 @@ export class Parser<T extends BaseDefaultAction> {
      * @param options Any parsing options.
      */
     constructor(
-        protected TClass: { new(): T },
+        protected instanceOrTClass: T | { new(...args: any[]): T },
         protected options?: ParserOptions
     ) {
         

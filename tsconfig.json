@@ -7,12 +7,17 @@
         "experimentalDecorators": true,
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true,
+        "declaration": true,
         "removeComments": false,
         "emitDecoratorMetadata": true,
+        "typeRoots": [
+			"node_modules/@types",
+			"lib/types"
+		],
         "types": [
             "@types/node"
         ]
     },
     "files": [ "src/index.ts" ],
-    "include": [ "src/**/*.spec.ts", "src/models/action-config.ts", "src/models/action-options.ts", "src/models/default-action-options.ts" ]
+    "include": [ "src/**/*.spec.ts" ]
 }

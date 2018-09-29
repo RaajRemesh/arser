@@ -1,6 +1,6 @@
 import { action, BaseAction } from "../../../src";
 
-@action("add")
+@action
 export class AddAction extends BaseAction {
 
     helpText(): string {

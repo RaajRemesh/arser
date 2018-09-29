@@ -41,4 +41,7 @@ function _flagDecoratorFactory(name: string, short?: string, optsOrHelpText?: st
     return _flagDecorator;
 }
 
+/**
+ * Shenanigans!!!
+ */
 export const flag = _flagDecoratorFactory;

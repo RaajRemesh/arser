@@ -25,7 +25,6 @@ action.
 ```typescript
 const tools: string = [ "wrench", "hammer", "pickaxe" ];
 
-@action("finagle")
 class FinagleAction extends BaseAction {
 
     @option("tool", "t", "The tool for finagling your toolables."
@@ -38,20 +37,33 @@ class FinagleAction extends BaseAction {
 
 }
 
-@action( /* default/top-level */ )
+@action /* default/top-level */
 class MyAppCLI extends BaseDefaultAction {
 
-    finagle = FinagleAction;
+    /* Optional, used with .launch(), below. */
+    constructor(
+        @inject(FinagleActionToken) protected finagleAction: Func<MyAppCLI>
+    ) {}
+
+    @action("finagle", FinagleAction, "Use a tool.",
+        { launch: this.finagleAction })
+    finagle: FinagleAction;
 
     @flag("force", "f", "Compel the toolable to finagle at your own risk.")
     version: boolean = false;
 }
 
+// You can either just get a model:
 const model = new Parser(MyAppCLI)
     .assertValidConfiguration() // you can also move this to your tests
     .parse(process.argv);
 
-runMyApp(model);
+// Or, use Arser to launch your app:
+container.build<IParser>()
+    .assertValidConfiguration() // you can also move this to your tests
+    .parse(process.argv)
+    .launch(); // await/.launchAsync()
+
 ```
 
 ### Running myapp.ts

@@ -1,6 +1,5 @@
 import { action, BaseAction } from "../../../src";
 
-@action("custom")
 export class CustomAction extends BaseAction {
 
     strange: string[] = [];

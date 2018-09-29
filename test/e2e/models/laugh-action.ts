@@ -1,6 +1,6 @@
 import { action, BaseAction } from "../../../src";
 
-@action("laugh")
+@action
 export class LaughAction extends BaseAction {
 
 }

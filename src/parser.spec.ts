@@ -43,6 +43,11 @@ export class ParserTest {
         };
         Assert(lambda).not.throws();
     }
+
+    @Test()
+    assertConfigurationValid_throwsWhenBaseActionMemberMissingActionDecorator() {
+        throw new Error("Not implemented");
+    }
 }
 
 /// Test models:
@@ -75,18 +80,25 @@ export class DupShortOptionTestModel extends BaseDefaultAction {
     @option("two", "o") two: boolean;
 }
 
-@action("one") export class SubActionDup1 extends BaseAction {}
-@action("one") export class SubActionDup2 extends BaseAction {}
+export class SubActionDup1 extends BaseAction {}
+export class SubActionDup2 extends BaseAction {}
 @action export class DupActionsTestModel extends BaseDefaultAction {
-    dup1 = SubActionDup1;
-    dup2 = SubActionDup2;
+    @action("one")
+    dup1 = new SubActionDup1();
+
+    @action("one")
+    dup2 = new SubActionDup2();
 }
 
-@action("one") export class SubActionValid1 extends BaseAction {}
-@action("two") export class SubActionValid2 extends BaseAction {}
+export class SubActionValid1 extends BaseAction {}
+export class SubActionValid2 extends BaseAction {}
 @action export class ValidTestModel extends BaseDefaultAction {
-    one = SubActionValid1;
-    two = SubActionValid2;
+    @action("one")
+    one = new SubActionValid1();
+
+    @action("two")
+    two = new SubActionValid2();
+
     @flag("valid", "f") prop: boolean;
     @flag("valid2", "2") prop2: boolean;
     @option("abc", "a") prop3: string;

@@ -1,7 +1,7 @@
 import { Test, Setup, TestCase } from "alsatian";
 import { action as actionFactory } from "./action-decorator";
 import { Assert } from "alsatian-fluent-assertions";
-import { ActionOptions, ActionDecoratorInfo } from "../models";
+import { ActionOptions, ActionDecoratorInfo, ActionPropertyDecoratorInfo } from "../models";
 import { getDecoratorInfo } from "./get-decorator-info";
 
 export class ActionDecoratorTests {
@@ -20,25 +20,27 @@ export class ActionDecoratorTests {
         Assert(nameOnly).is(Function);
         const nameAndOpts = actionFactory("name", {});
         Assert(nameAndOpts).is(Function);
-        const nameOptsAndDef = actionFactory("name", {}, true);
-        Assert(nameOptsAndDef).is(Function);
+        const nameHelpTextAndOpts = actionFactory("name", "help text", {});
+        Assert(nameHelpTextAndOpts).is(Function);
     }
 
-    @TestCase("a name", { helpText: "help text" }, true)
-    @TestCase("a name", { helpText: "abc" }, false)
+    @TestCase("a name", "help text", { })
+    @TestCase("a name 2", "abc", { })
     @Test()
-    decorator_storesConfig(name: string, opts: ActionOptions, isDef: boolean) {
-        const actionDec = actionFactory(name, opts, isDef);
-        actionDec(this.testObj);
+    propertyDecorator_storesConfig(name: string, helpText: string, opts: ActionOptions) {
+        const actionDec = actionFactory(name, helpText, opts);
+        const testPropKey = "something";
+        actionDec(this.testObj, testPropKey);
 
-        const info = getDecoratorInfo(this.testObj, ActionDecoratorInfo);
+        const info = getDecoratorInfo(this.testObj, ActionPropertyDecoratorInfo);
         Assert(info)
             .has(i => i.actions)
+            .that.has(a => a[testPropKey])
             .that.hasFirst()
             .that.has({
                 name: name,
                 options: opts,
-                isDefault: isDef
+                isDefault: false
             });
     }
 }
