@@ -26,7 +26,7 @@ action.
 ```typescript
 const tools: string = [ "wrench", "hammer", "pickaxe" ];
 
-class FinagleAction extends BaseAction {
+class FinagleAction extends BaseLaunchableAction<MyAppCLI> {
 
     @option("tool", "t", "The tool for finagling your toolables."
         { valid: tools })
@@ -39,16 +39,15 @@ class FinagleAction extends BaseAction {
 }
 
 @action /* default/top-level */
-class MyAppCLI extends BaseDefaultAction {
+class MyAppCLI extends BaseLaunchableDefaultAction {
 
     /* Optional, used with .launch(), below. */
     constructor(
         @inject(FinagleActionToken) protected finagleAction: Func<MyAppCLI>
     ) {}
 
-    @action("finagle", FinagleAction, "Use a tool.",
-        { launch: this.finagleAction })
-    finagle: FinagleAction;
+    @action("finagle", "Use a tool.")
+    finagle = new ;
 
     @flag("force", "f", "Compel the toolable to finagle at your own risk.")
     version: boolean = false;
