@@ -1,6 +1,7 @@
 import { ActionDecoratorInfo, ActionPropertyDecoratorInfo, metadataKeyPrefix } from '../models';
 import { ActionOptions } from '../models/action-options';
 import { DefaultActionOptions } from '../models/default-action-options';
+import { BaseAction } from '../base-action';
 
 export const defaultActionMetadataKey: string
     = metadataKeyPrefix + ActionDecoratorInfo.name;
@@ -79,7 +80,10 @@ function _actionDecoratorFactory<TClass extends Function>(
         Reflect.set(target, defaultActionMetadataKey, model);
     }
 
-    function _actionPropertyDecorator(target: Object, propertyKey: string): void {
+    function _actionPropertyDecorator<T extends Object, K extends keyof T, V extends T[K] & BaseAction>(
+        target: T,
+        propertyKey: string
+    ): void {
         let model: ActionPropertyDecoratorInfo = Reflect.get(target, propertyActionMetadataKey) || new ActionPropertyDecoratorInfo();
         model.actions[propertyKey] = model.actions[propertyKey] || [];
         model.actions[propertyKey].push({ name, isDefault, options });

@@ -1,7 +1,8 @@
 import { ParserOptions } from "./models/parser-options";
 import { IDefaultAction } from "./i-default-action";
+import { IParser } from "./i-parser";
 
-export class Parser<T extends IDefaultAction> {
+export class Parser<T extends IDefaultAction> implements IParser<T> {
     /**
      * Prepares an argv parser according to a provided format and parsing options.
      * @param TClass A subclass of BaseDefaultAction.
@@ -27,7 +28,7 @@ export class Parser<T extends IDefaultAction> {
      * This can include duplicate flags, missing required options, etc. Call this
      * at run-time or design-time (in your tests).
      */
-    assertConfigurationValid(): Parser<T> {
+    assertConfigurationValid(): IParser<T> {
         throw new Error("Not implemented, yet.");
         return this;
     }

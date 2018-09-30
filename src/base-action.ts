@@ -1,3 +1,5 @@
+import { ArgV } from "./models";
+
 export class BaseAction {
     
     /**
@@ -5,5 +7,9 @@ export class BaseAction {
      */
     get helpText(): string {
         throw new Error("Not implemented.");
+    }
+
+    parse(current: ArgV, all: ArgV[]): void {
+        throw new Error("Not implemented");
     }
 }

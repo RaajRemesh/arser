@@ -36,6 +36,8 @@ class FinagleAction extends BaseLaunchableAction<MyAppCLI> {
         { valid: /\d+/, parse: Number })
     turns: number = 1;
 
+    launch(argm: MyAppCLI): void
+        => 
 }
 
 @action /* default/top-level */
@@ -47,7 +49,7 @@ class MyAppCLI extends BaseLaunchableDefaultAction {
     ) {}
 
     @action("finagle", "Use a tool.")
-    finagle = new ;
+    finagle = this.finagleAction;
 
     @flag("force", "f", "Compel the toolable to finagle at your own risk.")
     version: boolean = false;

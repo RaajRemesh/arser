@@ -8,3 +8,4 @@ export * from './base-launchable-action';
 export * from './base-launchable-default-action';
 export * from './i-default-action';
 export * from './parser';
+export * from './i-parser';
