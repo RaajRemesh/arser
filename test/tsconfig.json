@@ -2,6 +2,7 @@
     "compilerOptions": {
         "outDir": "dist",
         "lib": ["es6", "dom"],
+        "target": "es6",
         "module": "commonjs",
         "alwaysStrict": true,
         "experimentalDecorators": true,
@@ -15,7 +16,7 @@
         ]
     },
 	"include": [
-		"**/*.ts", "../src/models/i-property-decorator-model.ts", "../src/decorators/i-property-decorator-model.ts", "../src/decorators/property-decorator.ts", "../src/util/i-property-decorator-model.ts"
+		"**/*.ts"
     ],
     "exclude": [
         

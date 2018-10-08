@@ -22,4 +22,7 @@ export class ParserOptions {
     caseSensitiveMatch: boolean = true;
 
     caseSensitiveEnumMatch: boolean = true;
+
+    /** Prepare to use .launch()/launchAsync() methods on CLI default action implementation */
+    useLauncher: boolean = true;
 }
